@@ -283,7 +283,7 @@
     function openEmail(includeDetails=false) {
       const subject = "Booking Request • Modern 8BR Retreat";
       const body = includeDetails ? buildMessage() : "Hi, I would like to book your home. Please share availability and pricing.";
-      const url = `mailto:${fkrclb@gmail.com}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const url = `mailto:fkrclb@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = url;
     }
   </script>

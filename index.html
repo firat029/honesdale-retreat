@@ -5,35 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Modern 8BR Retreat • Heated Indoor Pool | Honesdale, PA</title>
   <meta name="description" content="Direct booking for a spacious 8BR retreat in Honesdale, PA with a heated indoor pool, game room, fishpond, and BBQ area." />
+
+  <!-- Flatpickr (calendar-like date picker) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   <style>
     :root{
       --bg:#0b0b0d; --card:#111114; --muted:#a7a7ad; --text:#f5f5f7;
-      --brand:#ffffff; --line:rgba(255,255,255,.10); --soft:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12); --soft:rgba(255,255,255,.06);
       --btn:#ffffff; --btnText:#0b0b0d;
-      --radius:18px;
-      --max:1100px;
+      --radius:18px; --max:1100px;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#050506 0%, #0b0b0d 40%, #0b0b0d 100%);color:var(--text)}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
     .navin{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
     .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:38px;height:38px;border-radius:14px;background:#fff;display:grid;place-items:center;color:#0b0b0d;font-weight:800}
-    .menu{display:none;gap:10px;flex-wrap:wrap}
-    .menu a{padding:8px 10px;border-radius:12px;color:var(--muted)}
+    .logo{width:38px;height:38px;border-radius:14px;background:#fff;display:grid;place-items:center;color:#0b0b0d;font-weight:900}
+
+    .menu{display:none;gap:6px;flex-wrap:wrap}
+    .menu a{padding:8px 10px;border-radius:12px;color:var(--muted);font-weight:700;font-size:13px}
     .menu a:hover{background:var(--soft);color:var(--text)}
-    .cta{padding:10px 14px;border-radius:14px;background:var(--btn);color:var(--btnText);font-weight:800}
+
+    .cta{padding:10px 14px;border-radius:14px;background:var(--btn);color:var(--btnText);font-weight:900}
     .cta:hover{opacity:.92}
 
-    .hero{padding:28px 0 18px}
-    .heroCard{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius:24px;
-      overflow:hidden;
-    }
+    @media (min-width: 980px){ .menu{display:flex} }
+
+    .hero{padding:20px 0 10px}
+    .heroCard{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));border-radius:24px;overflow:hidden}
     .heroImg{
       height:320px;
       background:
@@ -42,34 +46,40 @@
       background-size:cover;background-position:center;
     }
     .heroContent{padding:18px}
-    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .pill{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:7px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
     h1{margin:10px 0 6px;font-size:34px;letter-spacing:-.02em}
     .sub{margin:0;color:var(--muted);line-height:1.5}
+
+    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.04);padding:7px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+
     .grid{display:grid;gap:16px}
     .main{grid-template-columns: 1.65fr 1fr;align-items:start}
-    @media (min-width: 900px){ .menu{display:flex} }
-    @media (max-width: 900px){ .main{grid-template-columns:1fr} }
+    @media (max-width: 980px){ .main{grid-template-columns:1fr} }
 
     .card{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:var(--radius);padding:16px}
     .card h2{margin:0 0 8px;font-size:18px}
     .muted{color:var(--muted);font-size:14px;line-height:1.6}
-    .section{padding:10px 0}
+    .section{padding:10px 0; scroll-margin-top: 92px;}
+
     .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
     .g1{grid-row:span 2}
     .gimg{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#111}
     .gimg img{width:100%;height:100%;object-fit:cover;display:block}
-    @media (max-width: 900px){ .gallery{grid-template-columns:1fr 1fr} .g1{grid-row:auto; grid-column:span 2} }
+    @media (max-width: 980px){ .gallery{grid-template-columns:1fr 1fr} .g1{grid-row:auto; grid-column:span 2} }
 
     .list{display:grid;gap:10px}
     .item{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
     .dot{width:10px;height:10px;border-radius:50%;background:#fff;margin-top:7px;opacity:.85}
+
     .amen{display:grid;gap:10px;grid-template-columns:1fr 1fr}
     @media (max-width: 700px){ .amen{grid-template-columns:1fr} }
 
-    .sticky{position:sticky;top:84px}
-    .price{font-size:26px;font-weight:900;letter-spacing:-.02em}
+    .sticky{position:sticky;top:92px}
+    @media (max-width: 980px){ .sticky{position:static} }
+
+    .price{font-size:26px;font-weight:950;letter-spacing:-.02em}
     .small{font-size:12px;color:var(--muted)}
+
     input,textarea,select{
       width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);
       background:rgba(255,255,255,.03);color:var(--text);outline:none
@@ -80,14 +90,23 @@
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
       padding:12px 14px;border-radius:16px;border:1px solid var(--line);
-      background:rgba(255,255,255,.04);color:var(--text);font-weight:800;cursor:pointer
+      background:rgba(255,255,255,.04);color:var(--text);font-weight:900;cursor:pointer
     }
     .btnPrimary{background:var(--btn);color:var(--btnText);border-color:transparent}
     .btn:hover{opacity:.92}
+
+    .note{padding:10px 12px;border-radius:16px;border:1px dashed var(--line);background:rgba(255,255,255,.02);color:var(--muted);font-size:13px;line-height:1.5}
     footer{border-top:1px solid var(--line);padding:26px 0;margin-top:24px;color:var(--muted)}
     .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media (max-width:700px){ .two{grid-template-columns:1fr} }
-    .note{padding:10px 12px;border-radius:16px;border:1px dashed var(--line);background:rgba(255,255,255,.02);color:var(--muted);font-size:13px;line-height:1.5}
+
+    /* Flatpickr tweaks */
+    .flatpickr-calendar{background:#0f0f12;color:#fff;border:1px solid var(--line)}
+    .flatpickr-day{color:#eaeaf0}
+    .flatpickr-day.disabled, .flatpickr-day.disabled:hover{color:#555}
+    .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.inRange{
+      background:#fff !important; color:#0b0b0d !important; border-color:#fff !important;
+    }
   </style>
 </head>
 
@@ -97,7 +116,7 @@
       <div class="brand">
         <div class="logo">H</div>
         <div>
-          <div style="font-weight:900;line-height:1.1">Modern 8BR Retreat</div>
+          <div style="font-weight:950;line-height:1.1">Modern 8BR Retreat</div>
           <div class="small">Honesdale, Pennsylvania</div>
         </div>
       </div>
@@ -115,12 +134,12 @@
     </div>
   </div>
 
-  <div class="wrap hero">
+  <div class="wrap hero" id="home">
     <div class="heroCard">
       <div class="heroImg"></div>
       <div class="heroContent">
         <h1>Modern 8BR Retreat • Heated Indoor Pool</h1>
-        <p class="sub">Direct booking — skip platform fees. Send a request to book via WhatsApp or email.</p>
+        <p class="sub">Direct booking — skip platform fees. Send a request via WhatsApp or email.</p>
 
         <div class="pills">
           <span class="pill">16+ guests</span>
@@ -135,11 +154,13 @@
 
   <div class="wrap">
     <div class="grid main">
+
       <!-- LEFT -->
       <div>
         <div class="section card" id="photos">
           <h2>Photo gallery</h2>
-          <p class="muted">Replace these images with your real property photos later (I can help you do that).</p>
+          <p class="muted">These are placeholder images. Replace with your real property photos anytime.</p>
+
           <div class="gallery" style="margin-top:12px">
             <div class="gimg g1">
               <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80" alt="Living room">
@@ -203,30 +224,24 @@
           <h2>Contact</h2>
           <p class="muted">Fastest response via WhatsApp. You can also email.</p>
           <div class="two" style="margin-top:12px">
-            <button class="btn btnPrimary" onclick="openWhatsApp()">WhatsApp</button>
-            <button class="btn" onclick="openEmail()">Email</button>
+            <button class="btn btnPrimary" id="waQuick">WhatsApp</button>
+            <button class="btn" id="emailQuick">Email</button>
           </div>
           <div class="note" style="margin-top:12px">
-            <b>Important:</b> Update your WhatsApp number + email inside the code (look for <code>WHATSAPP_NUMBER</code> and <code>HOST_EMAIL</code> below).
+            Make sure your WhatsApp number and email are set correctly (scroll down to the script and edit).
           </div>
         </div>
       </div>
 
-      <!-- RIGHT / BOOKING -->
+      <!-- RIGHT -->
       <div class="sticky">
         <div class="section card" id="availability">
-          <h2>Book now (direct)</h2>
-          <div class="note" style="margin-top:10px">
-             Availability: Please select your check-in and check-out dates above. For real-time availability, contact us via WhatsApp.
-          </div>   
+          <h2>Availability & booking request</h2>
           <div class="price">$499 <span class="small">/ night (from)</span></div>
           <div class="small" style="margin-top:6px">* Taxes/cleaning/deposit may apply depending on dates & group size.</div>
 
-          <label>Check-in</label>
-          <input id="checkin" type="date" />
-
-          <label>Check-out</label>
-          <input id="checkout" type="date" />
+          <label>Select dates (calendar)</label>
+          <input id="dates" placeholder="Click to pick dates" />
 
           <label>Guests</label>
           <select id="guests">
@@ -242,12 +257,12 @@
           <textarea id="note" placeholder="Example: Is early check-in available?"></textarea>
 
           <div class="btnRow">
-            <button class="btn btnPrimary" onclick="openWhatsApp(true)">Request via WhatsApp</button>
-            <button class="btn" onclick="openEmail(true)">Request via Email</button>
+            <button class="btn btnPrimary" id="waBtn">Request via WhatsApp</button>
+            <button class="btn" id="emailBtn">Request via Email</button>
           </div>
 
           <div class="note" style="margin-top:12px">
-            This is a direct booking request form (not instant payment). If you want Stripe payments + calendar sync, we’ll convert this to a full app.
+            This site shows a calendar-style date picker. Real-time Airbnb sync (automatic booked dates) can be added next.
           </div>
         </div>
       </div>
@@ -256,39 +271,57 @@
 
     <footer>
       <div class="wrap" style="padding:0">
-        <div style="font-weight:900;color:#fff">Modern 8BR Retreat • Heated Indoor Pool</div>
+        <div style="font-weight:950;color:#fff">Modern 8BR Retreat • Heated Indoor Pool</div>
         <div style="margin-top:6px">© <span id="y"></span> Direct booking</div>
       </div>
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    // ✅ CHANGE THESE TWO LINES
-    const WHATSAPP_NUMBER = "1XXXXXXXXXX"; // example: 1 + area + number (no + sign, no spaces)
-    const HOST_EMAIL = "you@example.com";
+    // ✅ SET THESE
+    const WHATSAPP_NUMBER = "134575927928"; // country code + number (no +, no spaces)
+    const HOST_EMAIL = "fkrclb@gmail.com";
+
+    // Optional: manually block some dates (example)
+    const BOOKED_DATES = [
+      "2026-03-14","2026-03-15","2026-03-16",
+      "2026-04-02","2026-04-03","2026-04-10"
+    ];
 
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    // Calendar-style date picker
+    flatpickr("#dates", {
+      mode: "range",
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      disable: BOOKED_DATES
+    });
+
     function buildMessage() {
-      const checkin = document.getElementById("checkin").value || "—";
-      const checkout = document.getElementById("checkout").value || "—";
+      const dates = document.getElementById("dates").value || "—";
       const guests = document.getElementById("guests").value || "—";
       const note = document.getElementById("note").value || "";
-      return `Hi, I would like to request a booking for:\\n\\nProperty: Modern 8BR Retreat • Heated Indoor Pool\\nDates: ${checkin} → ${checkout}\\nGuests: ${guests}\\n\\nNotes: ${note}`.trim();
+      return `Hi, I would like to request a booking for:\n\nProperty: Modern 8BR Retreat • Heated Indoor Pool\nDates: ${dates}\nGuests: ${guests}\n\nNotes: ${note}`.trim();
     }
 
-    function openWhatsApp(includeDetails=false) {
-      const text = includeDetails ? buildMessage() : "Hi, I would like to book your home. Please share availability and pricing.";
-      const url = `https://wa.me/${13475927928}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
+    function openWhatsApp(details=false) {
+      const text = details ? buildMessage() : "Hi, I would like to book your home. Please share availability and pricing.";
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
     }
 
-    function openEmail(includeDetails=false) {
+    function openEmail(details=false) {
       const subject = "Booking Request • Modern 8BR Retreat";
-      const body = includeDetails ? buildMessage() : "Hi, I would like to book your home. Please share availability and pricing.";
-      const url = `mailto:fkrclb@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = url;
+      const body = details ? buildMessage() : "Hi, I would like to book your home. Please share availability and pricing.";
+      window.location.href = `mailto:${HOST_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     }
+
+    // Buttons
+    document.getElementById("waBtn").addEventListener("click", () => openWhatsApp(true));
+    document.getElementById("emailBtn").addEventListener("click", () => openEmail(true));
+    document.getElementById("waQuick").addEventListener("click", () => openWhatsApp(false));
+    document.getElementById("emailQuick").addEventListener("click", () => openEmail(false));
   </script>
 </body>
 </html>
